@@ -3,5 +3,6 @@ class CreatePhotosDb < ActiveRecord::Migration
     create_table :photos do |t|
       t.string :filepath
       t.timestamps
+    end
   end
 end

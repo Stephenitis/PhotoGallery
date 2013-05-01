@@ -1,7 +1,31 @@
-$(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+var GALLERY = {
+  container: "#gallery",
+  url: "/images",
+  delay: 5000,
+  load: function(){
+    var _gallery = this;
+    $.ajax({
+      type: "get",
+      url: this.url,
+      success: function(data) {
+        var images = data;
+        $.each(images, function() {
+          _gallery.display(this);
+        });
+      }
+    });
+  },
+  display: function(image_url) {
+    $('<img></img>')
+    .attr('src', image_url)
+    .hide()
+    .load(function() {
+      $(this).fadeIn();
+    })
+    .appendTo(this.container);
+  }
+};
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+$(document).ready(function() {
+  GALLERY.load();
 });
