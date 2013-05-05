@@ -25,6 +25,7 @@
     <ul class "nav-items">
 
       <% if current_user %>
+      <li><a id="profile" href="/profile">My Albums</a></li>
         <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
       <% else %>
         <li><a href="/sessions/new">Sign In</a></li>

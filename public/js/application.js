@@ -28,4 +28,12 @@ var GALLERY = {
 
 $(document).ready(function() {
   GALLERY.load();
+
+  $("#album-button").on("click", function(){
+    alert("hello");
+    preventDefault();
+    $.post("/album/create", function(data){
+      $(".gallery").html(data)
+    })
+  });
 });

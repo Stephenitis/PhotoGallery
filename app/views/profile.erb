@@ -1,0 +1,7 @@
+<div id="profile">
+  <h2> <%= @user.name.capitalize %>'s profile</h2>
+    <div class="gallery">
+      <%= erb :_album, layout => false %>
+    </div>
+
+</div>

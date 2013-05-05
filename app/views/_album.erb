@@ -1,0 +1,13 @@
+<div class="form">
+<form action="/album/create" method="post" enctype="multipart/form-data">
+  <label for="title">Title: </label>
+  <input type="text" name="album[title]" required="required"><br>
+  <label for="text">Description: </label>
+  <input type="text" name="album[text]" required="required"><br>
+  <input type="hidden" name="album[user_id]"value="<%=@user.id%>" required="required"><br>
+  <input class="upload-box" name="photo[]" type="file" multiple >
+  <input type="hidden" name="user_id" value="<%=@user.id%>">
+  <a href="/photo/add"> add another photo</a>
+  <input id="album-button" type="submit" value="Create Album">
+</form>
+</div>

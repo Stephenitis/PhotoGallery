@@ -1,9 +1,8 @@
-#----------- USERS -----------
-get 'user/:id' do
-  @user = User.find(session[:id])
-  erb: user_view
-end
 
+get '/profile' do
+  @user = User.find(session[:user_id])
+  erb :profile
+end
 
 get '/users/new' do
   # render sign-up page
