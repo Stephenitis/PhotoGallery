@@ -14,9 +14,10 @@ gem 'activesupport'
 gem 'activerecord'
 
 gem 'rake'
-
+gem 'carrierwave'
+gem "mini_magick"
 gem 'shotgun'
-
+gem 'bcrypt-ruby'
 group :test do
   gem 'faker'
   gem 'rspec'

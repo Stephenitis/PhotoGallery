@@ -1,0 +1,5 @@
+<form action="/upload" method="post" enctype="multipart/form-data">
+<input class="upload-box" name="file" type="file" multiple >
+<input type="hidden" name="user_id" value="<%=@user.id%>">
+<input type="submit" value="Upload">
+</form>

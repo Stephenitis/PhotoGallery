@@ -18,6 +18,23 @@
   <title></title>
 </head>
 <body>
+    <nav>
+
+    <h1 class="brand-front">Stick</h1><h1 class= "brand-end">r</h1>
+
+    <ul class "nav-items">
+
+      <% if current_user %>
+        <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
+      <% else %>
+        <li><a href="/sessions/new">Sign In</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
+      <% end %>
+    </ul>
+
+  </nav>
+  <div class="container">
   <%= yield %>
+</div>
 </body>
 </html>
