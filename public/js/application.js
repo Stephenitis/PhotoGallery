@@ -29,11 +29,15 @@ var GALLERY = {
 $(document).ready(function() {
   GALLERY.load();
 
-  $("#album-button").on("click", function(){
-    alert("hello");
-    preventDefault();
+  $("form").on("click", "#add-photo-button", function(e){
+
+      $(".photo-module").append($("#add-photo:last").clone());
+        e.preventDefault();
+  });
+  $("#album-button").on("click", function(e){
+    e.preventDefault();
     $.post("/album/create", function(data){
-      $(".gallery").html(data)
-    })
+      $(".gallery").html(data);
+    });
   });
 });

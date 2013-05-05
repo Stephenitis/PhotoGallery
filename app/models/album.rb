@@ -1,4 +1,4 @@
 class Album < ActiveRecord::Base
-  has_many :photos
   belongs_to :user
+  mount_uploader :photo, PhotoUploader
 end

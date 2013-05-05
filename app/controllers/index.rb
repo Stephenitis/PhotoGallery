@@ -36,3 +36,38 @@ delete '/sessions/:id' do
 end
 
 
+get '/upload' do
+  @user = User.find(session[:user_id])
+  erb :_upload
+end
+
+post '/upload' do
+
+  filename = params[:file][:filename]
+  tempfile = params[:file][:tempfile]
+  @target = "public/uploads/#{filename}"
+  Photo.create()
+  File.open(@target, 'wb') {|f| f.write tempfile.read }
+  @filepath = "/uploads/#{filename}"
+  a_photo = Photo.create(filepath: @filepath)
+  redirect '/gallery'
+end
+
+get '/show' do
+  filename = params[:file][:filename]
+  erb :show_photo
+end
+
+get '/images' do
+content_type:json
+# @gallery = Photo.all.map {|x| x.filepath}
+end
+
+get '/gallery' do
+  p session
+  erb :gallery
+end
+
+get "photo/add" do
+erb :_add_photo, :layout => false
+end
